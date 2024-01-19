@@ -1,0 +1,16 @@
+#task-bar {
+  display: block;
+  width: 300px;
+}
+
+#submit-btn {
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.line-through-text {
+  text-decoration: line-through;
+}
