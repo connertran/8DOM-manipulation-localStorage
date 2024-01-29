@@ -59,66 +59,54 @@ formElement.addEventListener("submit", function (event) {
 
 // after click the remove button the local storage will delete the task from its memory
 function removeTaskFromLocalStorage(task) {
-  let currentTodoList = localStorage.getItem("items")
-    ? JSON.parse(localStorage.getItem("items"))
-    : [];
-
   // Find the index of the task in the array
-  const indexToRemove = currentTodoList.indexOf(task);
+  const indexToRemove = initialTodoList.indexOf(task);
 
   // Remove the task if it exists in the array
   if (indexToRemove !== -1) {
-    currentTodoList.splice(indexToRemove, 1);
+    initialTodoList.splice(indexToRemove, 1);
 
     // Save the updated array back to local storage
-    localStorage.setItem("items", JSON.stringify(currentTodoList));
+    localStorage.setItem("items", JSON.stringify(initialTodoList));
   }
 }
 
 // add a space after the text if the task is completed and update the list in the local storage
 function updateCompletedItemInLocalStorage(completedItem) {
-  let currentTodoList = localStorage.getItem("items")
-    ? JSON.parse(localStorage.getItem("items"))
-    : [];
-
   // Find the index of the task in the array
-  const indexOfItemToChange = currentTodoList.indexOf(completedItem);
+  const indexOfItemToChange = initialTodoList.indexOf(completedItem);
 
   // Check if the item is found in the array
   if (indexOfItemToChange !== -1) {
     // Get the item from the array
-    let itemToChange = currentTodoList[indexOfItemToChange];
+    let itemToChange = initialTodoList[indexOfItemToChange];
 
     // Adding a space add the end of the task if it exists in the array
-    currentTodoList[indexOfItemToChange] = itemToChange + " ";
+    initialTodoList[indexOfItemToChange] = itemToChange + " ";
 
     // Save the updated array back to local storage
-    localStorage.setItem("items", JSON.stringify(currentTodoList));
+    localStorage.setItem("items", JSON.stringify(initialTodoList));
   }
 }
 
 // remove a space after the text if the task is turned to not completed and update the list in the local storage
 function updateNotCompletedItemInLocalStorage(notCompletedItem) {
-  let currentTodoList = localStorage.getItem("items")
-    ? JSON.parse(localStorage.getItem("items"))
-    : [];
-
   // Find the index of the task in the array
-  const indexOfItemToChange = currentTodoList.indexOf(notCompletedItem + " ");
+  const indexOfItemToChange = initialTodoList.indexOf(notCompletedItem + " ");
 
   // Check if the item is found in the array
   if (indexOfItemToChange !== -1) {
     // Get the item from the array
-    let itemToChange = currentTodoList[indexOfItemToChange];
+    let itemToChange = initialTodoList[indexOfItemToChange];
 
     // Adding a space add the end of the task if it exists in the array
-    currentTodoList[indexOfItemToChange] = itemToChange.slice(
+    initialTodoList[indexOfItemToChange] = itemToChange.slice(
       0,
       itemToChange.length - 1
     );
 
     // Save the updated array back to local storage
-    localStorage.setItem("items", JSON.stringify(currentTodoList));
+    localStorage.setItem("items", JSON.stringify(initialTodoList));
   }
 }
 
